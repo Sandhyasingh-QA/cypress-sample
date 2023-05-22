@@ -162,17 +162,17 @@ describe('template spec', () => {
 
 
 
-      // //Create Agent
+      //Create Agent
 
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[5]/div/span').click()
-      // cy.xpath('//*[@id="__next"]/main/main/div[1]/button').click()
-      // cy.xpath('//*[@id="mui-component-select-associatedCampaign"]').click()
-      // cy.contains('Meeveo Group').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[3]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[5]/div/input').type(generateRandomEmail(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[2]/button').click()
+      cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[5]/div/span').click()
+      cy.xpath('//*[@id="__next"]/main/main/div[1]/button').click()
+      cy.xpath('//*[@id="mui-component-select-associatedCampaign"]').click()
+      cy.contains('Meeveo Group').click()
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[3]/div/input').type(generateRandomPhoneNumber())
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[5]/div/input').type(generateRandomEmail(10))
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[2]/button').click()
 
 
     })
