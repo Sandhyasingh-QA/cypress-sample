@@ -75,49 +75,49 @@ describe('template spec', () => {
       cy.xpath('//*[@id="__next"]/main/div/div/nav/div[1]/div[2]/span').click()
         
 
-      // //Create Owner
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[1]/div/span').click()
-      // cy.wait(5000) 
-      // cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click() // add owner
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[1]/div/input').type(generateRandomOrganizationName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div/input').type(generateRandomPhoneNumber(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[3]/div/input').type(generateRandomAddress())
-      // cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
-      // cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail())
-      // cy.get('.text-right > .MuiButton-contained').click()
+      //Create Owner
+      cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[1]/div/span').click()
+      cy.wait(5000) 
+      cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click() // add owner
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[1]/div/input').type(generateRandomOrganizationName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div/input').type(generateRandomPhoneNumber(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[3]/div/input').type(generateRandomAddress())
+      cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
+      cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail())
+      cy.get('.text-right > .MuiButton-contained').click()
     
-      // cy.wait(7000) 
-      // cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
+      cy.wait(7000) 
+      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
        
-      // cy.wait(8000) 
+      cy.wait(8000) 
     
   
 
-      // //Create Group Manager
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[2]').click()
-      // cy.wait(4000) 
-      // cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click()
-      // cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
-      // cy.contains('Apple').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[1]/div/input').type(generateRandomOrganizationName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[2]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[3]/div/input').type(generateRandomAddress())
-      // cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
-      // cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail(10))
-      // cy.get('.text-right > .MuiButton-contained').click()
-      // cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()
+      //Create Group Manager
+      cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[2]').click()
+      cy.wait(4000) 
+      cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click()
+      cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
+      cy.contains('Apple').click()
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[1]/div/input').type(generateRandomOrganizationName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[2]/div/input').type(generateRandomPhoneNumber())
+      cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[3]/div/input').type(generateRandomAddress())
+      cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
+      cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
+      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber())
+      cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail(10))
+      cy.get('.text-right > .MuiButton-contained').click()
+      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()
       
-      // cy.wait(8000)
+      cy.wait(8000)
 
  //Create CM
 
