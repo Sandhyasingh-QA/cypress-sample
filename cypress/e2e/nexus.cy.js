@@ -68,112 +68,146 @@ describe('template spec', () => {
     it('passes', () => {
       cy.viewport(1200,800)
       cy.visit('https://nexus-dev-admin.exitest.com/login')
-      cy.xpath('//*[@id="__next"]/main/section/div/form/div[1]/div/div/input').type('arana@ex2india.com')
-      cy.xpath('//*[@id="__next"]/main/section/div/form/div[2]/div/div/input').type('coolAdmin05@')
-      cy.xpath('//*[@id="__next"]/main/section/div/form/button').click()
-      cy.wait(5000) 
-      cy.xpath('//*[@id="__next"]/main/div/div/nav/div[1]/div[2]/span').click()
-        
 
-      // //Create Owner
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[1]/div/span').click()
-      // cy.wait(5000) 
-      // cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click() // add owner
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[1]/div/input').type(generateRandomOrganizationName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div/input').type(generateRandomPhoneNumber(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[3]/div/input').type(generateRandomAddress())
-      // cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
-      // cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail())
-      // cy.get('.text-right > .MuiButton-contained').click()
+      cy.get('input[name="email"]').type('arana@ex2india.com')
+      cy.get('input[name="password"]').type('coolAdmin05@')
+      cy.get('button[type="submit"]').click()
+
+      cy.wait(5000) 
+
+
+     //Hierarchy levels
+      cy.get('.MuiListItemText-root').eq(0).click()
+      cy.wait(2000)
+      //Create Owner
+
+      cy.xpath(" .//div[@tabindex='0']").eq(1).click()
+      cy.wait(6000) 
+      cy.contains('button', 'Add Owner').click()
+      cy.get('input[name="orgName"]').type(generateRandomOrganizationName(10))
+      cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
+      cy.get('input[name="orgAddress"]').type(generateRandomAddress())
+      //cy.get('input[name="orgIndustry"]').click()
+
+      cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()  //click on industry (doubt)
+      cy.xpath('//*[@id="menu-orgIndustry"]/div[3]/ul/li[1]').click()
+     // cy.contains('button','Marketing Company').click()
+      cy.contains('button', 'Next').click()
+
+      cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+      cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+      cy.get('input[name ="phone"]').type(generateRandomPhoneNumber(10))
+      cy.get('input[name ="email"]').type(generateRandomEmail())
+      cy.contains('button', 'Add New').click()
     
-      // cy.wait(7000) 
-      // cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
+      cy.wait(7000) 
+      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
        
-      // cy.wait(8000) 
+      cy.wait(8000) 
     
   
 
-      // //Create Group Manager
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[2]').click()
-      // cy.wait(4000) 
-      // cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click()
-      // cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
-      // cy.contains('Apple').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[1]/div/input').type(generateRandomOrganizationName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[2]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[3]/div/input').type(generateRandomAddress())
-      // cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
-      // cy.get('#menu-orgIndustry > .MuiPaper-root > .MuiList-root > [tabindex="0"]').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail(10))
-      // cy.get('.text-right > .MuiButton-contained').click()
-      // cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()
+      //Create Group Manager
+      cy.xpath(" .//div[@tabindex='0']").eq(2).click()
+      cy.wait(4000) 
+      cy.contains('button', 'Add Group Manager').click()
+      cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click() //doubt 
+      cy.contains('Apple').click()
+      cy.get('input[name="orgName"]').type(generateRandomOrganizationName(10))
+      cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
+      cy.get('input[name="orgAddress"]').type(generateRandomAddress())
+      //cy.get('input[name="orgIndustry"]').click()
+
+      cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()  //doubt
+      cy.xpath('//*[@id="menu-orgIndustry"]/div[3]/ul/li[1]').click()  //
+      //cy.contains('button', 'Real Estate Organizations').click()
+      cy.contains('button', 'Next').click()
+
+        cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+        cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+        cy.get('input[name ="phone"]').type(generateRandomPhoneNumber(10))
+        cy.get('input[name ="email"]').type(generateRandomEmail())
+        cy.contains('button', 'Add New').click()
       
-      // cy.wait(8000)
+    
+      cy.get('.text-right > .MuiButton-contained').click()
 
- //Create CM
+      
+      cy.wait(8000)
 
-      cy.xpath('/html/body/div/main/div/div/nav/div[2]/div/div/div/div[3]/div/span').click()
-      cy.wait(4000)
-      cy.xpath('//*[@id="__next"]/main/main/section/div[1]/div[2]/button').click()
-      cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
+    // Create CM
+       cy.xpath(" .//div[@tabindex='0']").eq(3).click()
+       cy.wait(4000) 
+       cy.contains('button', 'Add Campaign Manager').click()
+       cy.contains('button', 'Next').click()
+
       if
         (cy.get(' .Mui-error').contains('Please select a group manager'))
 
       {
-        cy.xpath('/html/body/div[2]/div[3]/div/div[2]/p/form/div[1]/div[2]/div/div/div/div/div/div[1]/div/div/div').click()
+        cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
         cy.contains('Nexus').click()
-        cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
+        cy.contains('button', 'Next').click()
       }
       if(cy.get('.Mui-error').contains('Please enter the organization name'))
       {
-        cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[1]/div/input').type(generateRandomOrganizationName(10))
+        cy.get('input[name="orgName"]').type(generateRandomOrganizationName(10))
       }
        if(cy.get('.Mui-error').contains('Please enter the phone number'))
        {
-        cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[2]/div/input').type(generateRandomPhoneNumber())
+        cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber())
        }
        
        if(cy.get('.Mui-error').contains('Please enter the address'))
        {
-        cy.xpath('//*[@id="panel1a-content"]/div/div/div[2]/div[3]/div/input').type(generateRandomAddress())
+        cy.get('input[name="orgAddress"]').type(generateRandomAddress())
        }
        cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
        cy.xpath('//*[@id="menu-orgIndustry"]/div[3]/ul/li[1]').click()
 
-       cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button').click()
+       cy.contains('button', 'Next').click()
 
-       cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-       cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-       cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[3]/div/input').type(generateRandomPhoneNumber())
-       cy.xpath('//*[@id="panel1a-content"]/div/form/div/div[5]/div/input').type(generateRandomEmail(10))
-       cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/p/form/div[3]/button[2]').click()
+       cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+       cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+       cy.get('input[name ="phone"]').type(generateRandomPhoneNumber())
+       cy.get('input[name ="email"]').type(generateRandomEmail(10))
+       cy.contains('button', 'Add New').click()
        cy.wait(3000)
-       //cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div/div/button').cick()
-       //cy.wait(7000)
+       
+    //Create Campaign
+      cy.xpath(" .//div[@tabindex='0']").eq(4).click()
+      cy.wait(3000)
+      cy.contains('button', 'Add Campaign').click()
+      cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
+      cy.contains('Zillow Homes').click()
+      
+      cy.get('input[name="orgName"]').type(generateRandomOrganizationName(10))
+      cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
+      cy.get('input[name="orgAddress"]').type(generateRandomAddress())
+      cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
+      cy.xpath('//*[@id="menu-orgIndustry"]/div[3]/ul/li[1]').click()
+      cy.contains('button', 'Next').click()
 
+      cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+      cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+      cy.get('input[name ="phone"]').type(generateRandomPhoneNumber(10))
+      cy.get('input[name ="email"]').type(generateRandomEmail())
+      cy.contains('button', 'Add New').click()
 
+  
+//       //Create Agent
 
-      // //Create Agent
-
-      // cy.xpath('//*[@id="__next"]/main/div/div/nav/div[2]/div/div/div/div[5]/div/span').click()
-      // cy.xpath('//*[@id="__next"]/main/main/div[1]/button').click()
-      // cy.xpath('//*[@id="mui-component-select-associatedCampaign"]').click()
-      // cy.contains('Meeveo Group').click()
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[1]/div/input').type(generateRandomGoodHumanFirstName(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[2]/div/input').type(generateRandomGoodHumanLastName(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[3]/div/input').type(generateRandomPhoneNumber())
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[1]/div[2]/div[5]/div/input').type(generateRandomEmail(10))
-      // cy.xpath('//*[@id="root"]/div[2]/div[3]/div/div[2]/div/div[2]/button').click()
-
+      cy.xpath(" .//div[@tabindex='0']").eq(5).click()
+      cy.wait(3000)
+      cy.contains('button', 'Add Agent').click()
+      cy.xpath('//*[@id="mui-component-select-associatedCampaign"]').click()
+      cy.contains('Meeveo Group').click()
+      cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+      cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+      cy.get('input[name ="phone"]').type(generateRandomPhoneNumber())
+      cy.get('input[name ="email"]').type(generateRandomEmail(10))
+      cy.contains('button', 'Add New').click()
+     
 
     })
     
