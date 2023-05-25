@@ -102,7 +102,10 @@ describe('template spec', () => {
     
       cy.wait(7000) 
       cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
+      cy.wait(7000) 
+      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
        
+      cy.wait(8000) 
       cy.wait(8000) 
     
   
