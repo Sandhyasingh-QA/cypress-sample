@@ -16,7 +16,9 @@ function generateRandomGoodHumanLastName() {
   return randomLastName;
 }
 function generateRandomOrganizationName() {
-  const adjectives = ['Awesome', 'Fantastic', 'Incredible', 'Amazing', 'Superb'];
+
+  const organizationNames = [];
+  const adjectives = ['Wisconsin', 'Chicago', 'FloraBlu', 'Lanier', 'Davis'];
   const nouns = ['Company', 'Corporation', 'Enterprise', 'Organization', 'Inc'];
 
   const randomAdjectiveIndex = Math.floor(Math.random() * adjectives.length);
@@ -25,7 +27,14 @@ function generateRandomOrganizationName() {
   const randomAdjective = adjectives[randomAdjectiveIndex];
   const randomNoun = nouns[randomNounIndex];
 
-  return `${randomAdjective} ${randomNoun}`;
+  let organizationName = `${randomAdjective} ${randomNoun}`;
+
+  while (organizationNames.includes(organizationName)) {
+    organizationName = getRandomName();
+  }
+  organizationNames.push(organizationName);
+
+  return organizationName;
 }
 function generateRandomAddress() {
   const houseNumbers = ['123', '456', '789', '10', '21'];
@@ -77,11 +86,13 @@ describe('template spec', () => {
 
 
      //Hierarchy levels
-      cy.get('.MuiListItemText-root').eq(0).click()
+      cy.contains('Dashboard').click()
       cy.wait(2000)
-      //Create Owner
 
-      cy.xpath(" .//div[@tabindex='0']").eq(1).click()
+
+      //Create Owner
+      //.//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]
+      cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(0).click()
       cy.wait(6000) 
       cy.contains('button', 'Add Owner').click()
       cy.get('input[name="orgName"]').type(generateRandomOrganizationName(10))
@@ -101,17 +112,15 @@ describe('template spec', () => {
       cy.contains('button', 'Add New').click()
     
       cy.wait(7000) 
-      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
-      cy.wait(7000) 
-      cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
-       
-      cy.wait(8000) 
+      //cy.get('.MuiDialogContentText-root > .MuiButtonBase-root').click()  //okay
+      cy.contains('button','Okay').click()
+      
       cy.wait(8000) 
     
   
 
       //Create Group Manager
-      cy.xpath(" .//div[@tabindex='0']").eq(2).click()
+      cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(1).click()
       cy.wait(4000) 
       cy.contains('button', 'Add Group Manager').click()
       cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click() //doubt 
@@ -132,14 +141,14 @@ describe('template spec', () => {
         cy.get('input[name ="email"]').type(generateRandomEmail())
         cy.contains('button', 'Add New').click()
       
-    
-      cy.get('.text-right > .MuiButton-contained').click()
-
+      cy.contains('button','Okay').click()
+     // cy.get('.text-right > .MuiButton-contained').click()
+      
       
       cy.wait(8000)
 
     // Create CM
-       cy.xpath(" .//div[@tabindex='0']").eq(3).click()
+       cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(2).click()
        cy.wait(4000) 
        cy.contains('button', 'Add Campaign Manager').click()
        cy.contains('button', 'Next').click()
@@ -176,9 +185,11 @@ describe('template spec', () => {
        cy.get('input[name ="email"]').type(generateRandomEmail(10))
        cy.contains('button', 'Add New').click()
        cy.wait(3000)
-       
+
+       cy.contains('button','Okay').click()
+       cy.wait(5000)
     //Create Campaign
-      cy.xpath(" .//div[@tabindex='0']").eq(4).click()
+      cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(3).click()
       cy.wait(3000)
       cy.contains('button', 'Add Campaign').click()
       cy.xpath('//*[@id="mui-component-select-parentOrgId"]').click()
@@ -197,10 +208,12 @@ describe('template spec', () => {
       cy.get('input[name ="email"]').type(generateRandomEmail())
       cy.contains('button', 'Add New').click()
 
+      cy.contains('button','Okay').click()
+      cy.wait(3000)
   
 //       //Create Agent
 
-      cy.xpath(" .//div[@tabindex='0']").eq(5).click()
+      cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(4).click()
       cy.wait(3000)
       cy.contains('button', 'Add Agent').click()
       cy.xpath('//*[@id="mui-component-select-associatedCampaign"]').click()
@@ -210,7 +223,8 @@ describe('template spec', () => {
       cy.get('input[name ="phone"]').type(generateRandomPhoneNumber())
       cy.get('input[name ="email"]').type(generateRandomEmail(10))
       cy.contains('button', 'Add New').click()
-     
+
+      cy.contains('button','Okay').click()
 
     })
     
