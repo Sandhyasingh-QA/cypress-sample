@@ -34,6 +34,27 @@ export function generateOrganizationName() {
   return organizationName;
 }
 
+export function inputRandomOrganizationName() {
+  const organizationName = generateRandomString(10); // Generate a random string of length 10
+
+  cy.get('#organization-name-input') // Assuming the input field has the ID 'organization-name-input'
+    .type(organizationName) // Type the random organization name into the input field
+    .blur(); // Trigger a blur event to indicate that the input has been completed
+}
+
+// function generateRandomString(length) {
+//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//   let randomString = '';
+
+//   for (let i = 0; i < length; i++) {
+//     const randomIndex = Math.floor(Math.random() * characters.length);
+//     randomString += characters.charAt(randomIndex);
+//   }
+
+//   return randomString;
+// }
+
+
 export function generateRandomAddress() {
   const houseNumbers = ['123', '456', '789', '10', '21'];
   const streetNames = ['Main Street', 'First Avenue', 'Oak Road', 'Maple Lane', 'Cedar Avenue'];
