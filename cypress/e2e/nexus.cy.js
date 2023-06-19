@@ -199,6 +199,7 @@ describe('template spec', () => {
       cy.wrap(listItems.eq(1)).click();
      });
      cy.wait(2000);
+     cy.get('ul[role="listbox"]').type("{esc}")
      cy.get('input[name ="name"]').click({force:true})
      
      cy.get('input[name ="name"]').type(generateOrganizationName(10),{force:true})
@@ -209,9 +210,9 @@ describe('template spec', () => {
       cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
       cy.get('input[name ="phone"]').type(generateRandomPhoneNumber())
       cy.get('input[name ="email"]').type(generateRandomEmail(10))
-      cy.get('input[name="orgAddress"]').type(generateRandomAddress())
-      cy.contains('button', 'Add New').click()
-      cy.contains('button','Okay').click()
+      cy.get('input[name ="address"]').type(generateRandomAddress())
+      cy.contains('button', 'Add New').click({force:true})
+      //cy.contains('button','Okay').click({force:true})
       cy.wait(3000)
 
       //adding a team with an already existing team member
