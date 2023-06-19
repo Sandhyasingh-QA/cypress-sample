@@ -22,6 +22,7 @@ describe('Owner ', () => {
         cy.get('input[name="orgName"]').type(generateOrganizationName())
         cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
         cy.get('input[name="orgAddress"]').type(generateRandomAddress())
+        cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
         cy.get('ul[role="listbox"] > li').then((listItems) => {
             (listItems.eq(0)).click()
         });
@@ -67,6 +68,7 @@ describe('Owner ', () => {
        {
         cy.get('input[name="orgAddress"]').type(generateRandomAddress())
        }
+       cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
        cy.get('ul[role="listbox"] > li').then((listItems) => {
         (listItems.eq(0)).click()
        });
