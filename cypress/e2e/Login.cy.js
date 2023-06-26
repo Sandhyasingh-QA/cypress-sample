@@ -1,3 +1,4 @@
+
 describe('Login Nexus ', () => {
 
     it('Test case 1 login- Positive', () => {
@@ -5,8 +6,8 @@ describe('Login Nexus ', () => {
       cy.visit('https://nexus-dev-admin.exitest.com/login')
 
       cy.get('input[name="email"]').type('arana@ex2india.com')
-      cy.get('input[name="password"]').type('coolAdmin05@')
-      cy.get('button[type="submit"]').click()
+        cy.get('input[name="password"]').type('coolAdmin05@')
+        cy.get('button[type="submit"]').click()
       cy.wait(5000)
       cy.url().should('eq','https://nexus-dev-admin.exitest.com/dashboard/analytics/my-dashboard')
     })

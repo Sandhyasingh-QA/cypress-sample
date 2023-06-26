@@ -9,14 +9,10 @@ describe('Dasboard ', () => {
         cy.get('button[type="submit"]').click()
         cy.wait(5000)
         cy.url().should('eq','https://nexus-dev-admin.exitest.com/dashboard/analytics/my-dashboard')
-        cy.wait(3000)
-        cy.contains('Dashboard').click()
-        cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(0).click()
-        cy.wait(3000)
-        cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(1).click()
-        cy.wait(3000)
-        cy.xpath(".//div[contains(@class,'MuiCollapse-entered')]//span[contains(@class,'MuiListItemText-primary')]").eq(2).click()
-        cy.wait(3000)
+        cy.wait(2000)
+        cy.title().should('eq','Analytics Dashboard')
+
+       
       })
 
     
