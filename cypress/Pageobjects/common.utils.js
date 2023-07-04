@@ -13,27 +13,27 @@ export class login
 
     }
 
-    export class create
-    {
-      handleCreateOrg(){
-        cy.get('input[name="orgName"]').type(generateOrganizationName())
-        cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
-        cy.get('input[name="orgAddress"]').type(generateRandomAddress())
-        cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
-        cy.get('ul[role="listbox"] > li').then((listItems) => {
-            (listItems.eq(0)).click()
-        });
-        cy.contains('button', 'Next').click()
-      }
-      handleCreatePoc(){
-        cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
-        cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
-        cy.get('input[name ="phone"]').type(generateRandomPhoneNumber(10))
-        cy.get('input[name ="email"]').type(generateRandomEmail())
-        cy.contains('button', 'Add New').click()
-      }
+    // export class create
+    // {
+    //   handleCreateOrg(){
+    //     cy.get('input[name="orgName"]').type(generateOrganizationName())
+    //     cy.get('input[name="orgPhoneNumber"]').type(generateRandomPhoneNumber(10))
+    //     cy.get('input[name="orgAddress"]').type(generateRandomAddress())
+    //     cy.xpath('//*[@id="mui-component-select-orgIndustry"]').click()
+    //     cy.get('ul[role="listbox"] > li').then((listItems) => {
+    //         (listItems.eq(0)).click()
+    //     });
+    //     cy.contains('button', 'Next').click()
+    //   }
+    //   handleCreatePoc(){
+    //     cy.get('input[name ="firstName"]').type(generateRandomGoodHumanFirstName(10))
+    //     cy.get('input[name ="lastName"]').type(generateRandomGoodHumanLastName(10))
+    //     cy.get('input[name ="phone"]').type(generateRandomPhoneNumber(10))
+    //     cy.get('input[name ="email"]').type(generateRandomEmail())
+    //     cy.contains('button', 'Add New').click()
+    //   }
 
-    }
+    // }
 
     
 
